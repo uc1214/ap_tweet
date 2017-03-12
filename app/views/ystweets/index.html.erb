@@ -1,0 +1,41 @@
+<div class="container", height = "100%">
+  <div class="wrapper col-sm-3 tweet_index_box_profile">
+    <p class = "crop">
+      <img src="<%= asset_path "sake.jpg" %>" class = "img_profile">
+    </p>
+    <p><%= notice %></p>
+    <h3>Profile</h3>
+    <p>Twitter風コメント投稿アプリです。</p>
+    <p>テキストボックスにコメントを入れてツィートボタンを押してください。</p>
+  </div>
+  <div class="wrapper col-sm-8 tweet_index_box_text">
+    <%= form_for(@tweet_content, url: choose_new_or_edit, class: 'tweet_box') do |f| %>
+    <% if @tweet_content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @tweet_content.errors.count %>件のエラーがあります。</h2>
+      <ul>
+        <% @tweet_content.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%= f.text_field :content, :placeholder => "今なにしてる？", class: 'form-control text_new_tweet_index' %>
+    <div class = "btn_new_tweet">
+      <%= image_submit_tag(asset_path "button_tweet.png")%>
+    </div>
+    <% end %>
+    <div class = "clear"></div>
+    <% @tweet.each do |tweet| %>
+    <div class = "row tweet_box">
+      <p class = "break"><%= tweet.content %></p>
+      <%= link_to "編集", edit_ystweet_path(tweet.id), class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "削除", ystweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+    </div>
+    <% end %>
+  </div>
+  <div id="page-top-btn" class="page-top-btn">
+    <p><a class="move-page-top" id ="move-page-top">▲</a></p>
+  </div>
+</div>
+<div class = "clear"></div>
