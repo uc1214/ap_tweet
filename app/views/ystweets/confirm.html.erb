@@ -7,7 +7,9 @@
      <%= f.hidden_field :content %>
 
      <!-- @tweet.contentとすることで、表示用の値を画面に出力しています。 -->
-     <p>本文：<%= @tweet.content %></p>
+     <div class = "tweet_confirm_box">
+       <p class = "break_confirm"><%= @tweet.content %></p>
+     </div>
      <%= f.submit "登録する", class: 'btn btn-primary btn-block'%>
     <% end %>
     <br>

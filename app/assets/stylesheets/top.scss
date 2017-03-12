@@ -130,6 +130,17 @@ div.tweet_box {
   background: #ffffff;
 }
 
+div.tweet_confirm_box {
+  border: 1px solid #000000;
+  text-align: left;
+  margin: 20px 0px 20px 0px;
+  background: #ffffff;
+}
+
+div.tweet_confirm_box p.break_confirm {
+  word-wrap: break-word; /* 単語の途中でも改行 */
+}
+
 div.tweet_index_box_profile {
   text-align: left;
   border: 1px solid #000000;  
